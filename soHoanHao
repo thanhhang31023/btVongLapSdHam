@@ -1,0 +1,39 @@
+// Nhập vào 1 số N. Kiểm tra xem N có phải là số hoàn hảo hay không?
+//Số hoàn hảo là số có tổng các ước (không tính nó) bằng chính nó, ví dụ:N = 6
+//N có các ước là 1, 2, 3 tổng = 1 + 2 + 3 = 6. Do đó N là một số hoàn hảo.
+//Mở rộng: nhập vào 1 dãy số dừng khi nào người dùng nhập 0. Hãy đếm xem dãy số vừa nhập có bao nhiêu số hoàn hảo.
+
+import java.util.Scanner;
+
+public class Main {
+    static int tongUoc(int num) {
+        int sum = 0;
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+public static boolean soHoanHao(int num) {
+        return tongUoc(num) == num;
+    }
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+
+        while (true) {
+            System.out.print("Nhập vào một số (nhập 0 để kết thúc): ");
+            int num = scanner.nextInt();
+            if (num == 0) {
+                break;
+            }
+            if (soHoanHao(num)) {
+                count++;
+                System.out.println(num + " là số hoàn hảo.");
+            }
+        }
+        System.out.println("Tổng số hoàn hảo trong dãy số đã nhập là: " + count);
+        scanner.close();
+    }
+}
