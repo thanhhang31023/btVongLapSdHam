@@ -1,0 +1,34 @@
+//Hãy kiểm tra các chữ số của số nguyên dương n có giảm dần từ trái sang phải hay không.
+//Ví dụ: N = 321 thoả mãn.
+//N = 123 không thoả mãn
+
+import java.util.Scanner;
+
+public class Main {
+    public static boolean kiemTraChuSoGiamDan(int n) {
+        int chuSoCuoi = n % 10;
+        n /= 10;
+
+        while (n > 0) {
+            int chuSoHienTai = n % 10;
+            if (chuSoHienTai <= chuSoCuoi) {
+                return false;
+            }
+            chuSoCuoi = chuSoHienTai;
+            n /= 10;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập vào số nguyên dương N: ");
+        int N = scanner.nextInt();
+
+        if (kiemTraChuSoGiamDan(N)) {
+            System.out.println("Các chữ số của " + N + " thỏa mãn giảm dần từ trái sang phải.");
+        } else {
+            System.out.println("Các chữ số của " + N + " không thỏa mãn giảm dần từ trái sang phải.");
+        }
+    }
+}
