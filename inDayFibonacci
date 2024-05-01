@@ -1,0 +1,25 @@
+//Nhập vào một số nguyên dương N. Hãy in ra dãy fibonacci có độ dài N.
+//Dãy fibonacci là dãy theo công thức: An = An-1 + An-2
+//Input: N, a1 = 0, a2 = 1
+//Output: dãy fibonacci có độ dài N
+
+import java.util.Scanner;
+
+public class Main {
+    public static void inDayFibonacci(int N) {
+        long num1 = 0, num2 = 1;
+        System.out.println("Dãy Fibonacci có độ dài " + N + " là: ");
+        for (int i = 0; i < N; i++) {
+            System.out.print(num1 + " ");
+            long numNext = num1 + num2;
+            num1 = num2;
+            num2 = numNext;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập vào số nguyên dương N: ");
+        int N = scanner.nextInt();
+        inDayFibonacci(N);
+    }
+}
