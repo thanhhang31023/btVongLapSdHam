@@ -1,0 +1,37 @@
+//Nhập vào 1 số nguyên dương N. Hãy kiểm tra xem số đó có phải là số đối xứng hay không?
+//Ví dụ:
+//121, 131 là số đối xứng
+//123 không phải là số đối xứng
+//Mở rộng: xét cả số N âm.
+
+import java.util.Scanner;
+
+public class Main {
+    public static boolean kiemTraSoDoiXung(int N) {
+        int soDaoNguoc = 0;
+        int temp = Math.abs(N); // Lấy giá trị tuyệt đối để xử lý số âm
+        int soBanDau = temp;
+
+        // Đảo ngược số
+        while (temp != 0) {
+            int chuSoDonVi = temp % 10;
+            soDaoNguoc = soDaoNguoc * 10 + chuSoDonVi;
+            temp /= 10;
+        }
+
+        // So sánh số ban đầu với số đảo ngược
+        return soBanDau == soDaoNguoc;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập vào số nguyên N: ");
+        int N = scanner.nextInt();
+
+        if (kiemTraSoDoiXung(N)) {
+            System.out.println(N + " là số đối xứng.");
+        } else {
+            System.out.println(N + " không phải là số đối xứng.");
+        }
+    }
+}
