@@ -1,0 +1,21 @@
+//Nhập vào 1 số N và tính tổng biểu thức căn bậc 2 của các số từ 1 đến n.
+
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Main {
+    public static double tinhTongCanBacHai(int N) {
+        double sum = 0;
+        for (int i = 1; i <= N; i++) {
+            sum += Math.sqrt(i);
+        }
+        return sum;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập vào số N: ");
+        int N = scanner.nextInt();
+        double sum = tinhTongCanBacHai(N);
+        System.out.println("Tổng của căn bậc hai của các số từ 1 đến " + N + " là: " + sum);
+    }
+}
