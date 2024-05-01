@@ -1,0 +1,16 @@
+//  in ra bảng cửu chương từ 1 đến 12
+
+public class Main {
+    public static void inBangCuuChuong(int n) {
+        for (int i = 1; i <= 12; i++) {
+            int result = n * i;
+            System.out.println(i + " x " + n + " = " + result);
+        }
+    }
+    public static void main(String[] args) {
+        for (int j = 1; j <= 12; j++) {
+            inBangCuuChuong(j);
+            System.out.println();
+        }
+    }
+}
