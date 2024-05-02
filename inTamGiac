@@ -1,0 +1,80 @@
+// viết chương trình in ra tam giác cân đặc, rỗng, tam giác vuông cân đặc, rỗng với chiều cao tam giác H nhập từ bàn phím như hình vẽ trong link bên dưới
+// https://prnt.sc/i6UThCJfGekZ
+
+import java.util.Scanner;
+
+public class Main {
+    public static void inTamGiacCanDac(int H) {
+        for (int i = 0; i < H; i++) {        // i là số hàng của tam giác.
+            for (int j = 0; j < H - i - 1; j++) {
+                System.out.print("  ");      // in dấu cách trước dấu *, số lượng dấu cách giảm dần khi i tăng.
+            }
+            for (int k = 0; k < (2 * i) + 1; k++) {
+                System.out.print("* ");     // in dấu *,số lượng dấu * tăng dần khi i tăng
+            }                               // công thức (2 * i) + 1 vì dấu * tăng dần từ 1,3,5,7,...
+            System.out.println();           // xuống dòng sau khi in xong 1 hàng
+        }
+    }
+    public static void inTamGiacCanRong(int H) {
+        for (int i = 0; i < H; i++) {
+            for (int j = 0; j < H - i - 1; j++) {
+                System.out.print("  ");
+            }
+            if (i == 0 || i == H - 1) {      //Nếu là hàng đầu tiên hoặc hàng cuối cùng, in ra toàn bộ dấu '*'.
+                for (int k = 0; k < (2 * i) + 1; k++) {
+                    System.out.print("* ");
+                }
+            } else {                       　// với các trường hợp các hàng ở giữa, i >=1
+                System.out.print("* ");    　// in ra 1 dấu * ở đầu hàng
+                for (int l = 0; l < (2 * i) - 1; l++) {     // dấu cách bên trong tăng dần từ 1,3,5,7...
+                    System.out.print("  ");        // in tiếp các dấu cách ở trong hàng để tạo tam giác rỗng
+                }
+                System.out.print("* ");           // in ra 1 dấu * ở cuối hàng
+            }
+            System.out.println();
+        }
+    }
+
+    public static void inTamGiacVuongCanDac(int H) {
+        for (int i = 0; i < H; i++) {
+            for (int j = 0; j <= i; j++) {    　　// in dấu * tăng tương ứng với số hàng
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    public static void inTamGiacVuongCanRong(int H) {
+        for (int i = 0; i < H; i++) {
+            if (i == 0 || i == H - 1) {
+                for (int j = 0; j <= i; j++) {
+                    System.out.print("* ");
+                }
+            } else {
+                System.out.print("* ");
+                for (int j = 0; j < i - 1; j++) {
+                    System.out.print("  ");     　// in dấu cách tạo khoảng rỗng bên trong
+                }                               　//dấu cách tăng tương ứng số hàng từ 0,1,2,3...
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập vào số nguyên dương chiều cao H của tam giác: ");
+        int H = scanner.nextInt();
+
+        System.out.println("a. Tam giác cân đặc:");
+        inTamGiacCanDac(H);
+
+        System.out.println("\nb. Tam giác cân rỗng:");
+        inTamGiacCanRong(H);
+
+        System.out.println("\nc. Tam giác vuông cân đặc:");
+        inTamGiacVuongCanDac(H);
+
+        System.out.println("\nd. Tam giác vuông cân rỗng:");
+        inTamGiacVuongCanRong(H);
+    }
+}
+
