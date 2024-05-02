@@ -1,0 +1,21 @@
+//Nhập vào độ cao H và in ra tam giác cân có chiều cao = H. Hiển thị như hình vẽ trong link dưới
+// https://prnt.sc/r9kqNH1Q1Xrf
+
+public class Main {
+    public static void inTamGiacCanDac(int H) {
+        for (int i = 0; i < H; i++) {     // i là số hàng của tam giác.
+            for (int j = 0; j < H - i - 1; j++) {
+                System.out.print("  ");     // in dấu cách trước dấu *, số lượng dấu cách giảm dần khi i tăng.
+            }
+            for (int k = 0; k < (2 * i) + 1; k++) {
+                System.out.print("* ");   // in dấu *,số lượng dấu * tăng dần khi i tăng
+            }                             // công thức (2 * i) + 1 vì dấu * tăng dần từ 1,3,5,7,...
+            System.out.println();         // xuống dòng sau khi in xong 1 hàng
+        }
+    }
+    public static void main(String[] args) {
+        int H =10;
+        System.out.println("Tam giác cân đặc:");
+        inTamGiacCanDac(H);
+    }
+}
